@@ -1,0 +1,29 @@
+# OS / editors
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Assembly guide intermediates (regenerate with guide/build.py);
+# the finished PDF is kept
+guide/build/*
+!guide/build/params_echo.scad
+guide/img/
+
+# OpenSCAD
+*.echo
+*.csg
+
+# Slicer output (keep the STLs, not the sliced jobs)
+*.gcode
+*.gcode.3mf
+*.bgcode
