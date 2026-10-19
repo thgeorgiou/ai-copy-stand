@@ -45,7 +45,7 @@ Assembly instructions: [`guide/assembly_guide.pdf`](guide/assembly_guide.pdf).
 | `stl/` | Exported parts, already oriented for printing. |
 | `guide/` | Assembly guide: `build.py` renders the steps, `guide.typ` lays them out. |
 | `renders/` | Images from the design reviews. |
-| `samples/quickrelease.stl` | The TY-C10 plate, used to fit the clamp. |
+| `samples/quickrelease.stl` | The TY-C10 plate by unwohlpol (CC BY-NC-SA 4.0, see `samples/README.md`), used to fit the clamp. |
 | `bom.md` | The original brief and purchase list. |
 
 ## Bill of materials
@@ -136,3 +136,18 @@ typst compile --root . --ppi 150 guide/banner.typ renders/banner.png   # README 
 - **Side note:** the carriage ended up on the left of the beam as seen from
   the front, not on the right as first planned. It works either way.
   Mirroring the whole design is a single change if it's ever wanted.
+
+## License
+
+[CC0 1.0](LICENSE): public domain, with no conditions. Print it, remix it,
+sell it; no credit needed. The design was mostly generated with an AI
+assistant, so it may not be copyrightable anyway. CC0 waives whatever rights
+there are, so nobody has to worry about it.
+
+Not included: `samples/quickrelease.stl` is
+["Tripod quick release plate"](https://www.printables.com/model/204259-tripod-quick-release-plate)
+by **unwohlpol**, under
+[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/). It's
+included unmodified as a fitting reference, and isn't needed to build the
+stand; see
+[`samples/README.md`](samples/README.md). Product names belong to their owners.

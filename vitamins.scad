@@ -111,6 +111,7 @@ module ab_nut() {
 // ---------------------------------------------------------------- Arca plate
 // Clamp-side face at y = 0, camera side at y = plate_t; centred in x and z.
 // The real plate, from its STL (STL: x across, y along the slide, z = 0 clamp face).
+// STL: "Tripod quick release plate" by unwohlpol, Printables #204259, CC BY-NC-SA 4.0.
 module arca_plate() {
     color(c_dark) translate([0, 0, -plate_l/2]) rotate([0, 0, 180]) rotate([90, 0, 0])
         translate([-plate_w/2, 0, 0]) import("samples/quickrelease.stl");
