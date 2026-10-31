@@ -1,19 +1,32 @@
 [![Film-scanning copy stand](renders/banner.png)](guide/assembly_guide.pdf)
 
-# Film-scanning copy stand
+# AI Film-scanning copy stand
 
-A copy stand for scanning 35 mm film with a camera. It is built from a 2040
-V-slot column on an IKEA APTITLIG bamboo board. A printed carriage rides the
-column on four V-wheels and is raised by a Tr8×2 leadscrew turned with a
-handwheel. The camera clips on with a printed Arca clamp sized for a Sirui
-TY-C10 plate.
+A copy stand for scanning film (and other things) with a camera. It is based
+on a 2040 V-slot column bolted on an IKEA APTITLIG cutting board. The entire
+thing is pretty much designed by AI but in my tests it seems to work reasonably
+well.
 
-The target setup is an Olympus OM-3 (Micro Four Thirds) with a Minolta AF
-50/2.8 Macro on an adapter, at about 1:2.2, which fits a full 35 mm frame.
-That puts the carriage centre about 284 mm above the board, with travel from
-160 to 420 mm.
+My setup is an OM System OM-3 with a Minolta AF (A-mount) 50mm f2.8 Macro,
+which weighs approximately 950gr. The copy stand handles that without a
+problem. My lightsource is a CS-Lite and the film-holder a tone-scanner,
+both fit without any clearance problems. There is travel from 160 to 420mm
+approximately and the lead-screw does not move at all under its own weight.
 
+**Is it level?** In my tests with my camera, there seems to be approximately
+a 0.8degree error at the heights I use it. It seems to be caused by the
+rubber pads between the camera's bottom and the tripod's arcaswiss-style
+plate. After putting some 1mm washers below my light source, the error is almost
+completely gone, so I didn't bother searching for another solution.
+
+I asked the AI agent to use OpenSCAD and the files are reasonably parametric.
+For any changes I would ask some AI tool to go through the sources and do the
+work.
+ 
 Assembly instructions: [`guide/assembly_guide.pdf`](guide/assembly_guide.pdf).
+Includes a bill of materials.
+
+The rest of this file and the assembly guide are mostly AI-generated.
 
 ## Layout
 
@@ -55,7 +68,7 @@ Assembly instructions: [`guide/assembly_guide.pdf`](guide/assembly_guide.pdf).
 
 | Part | Qty | Notes |
 |---|---|---|
-| P0a/P0a2/P0b/P0c test coupons | – | Wheel spacing, hole fits, KFL08 and nut fit, and the clamp. All tested. |
+| P0a/P0a2/P0b/P0c test coupons | – | Wheel spacing, hole fits, KFL08 and nut fit, and the clamp. I was unsure about my hardware, these help you calibrate. |
 | P1 carriage | 1 | Prints flat on the plate's outer face. No supports. |
 | P3 moving jaw + P4 knob | 1 + 1 | `p3_p4_jaw_knob.stl` |
 | P5 bearing bracket | 2 | Prints upside down, plate on the bed. |
@@ -94,9 +107,6 @@ Use 4 or more walls on P1, P5 and P6, with 30–40 % infill.
 | 4 | M3×8–10 | brass nut in the handwheel |
 | 1 + 1 | M3×10 + M3 nut | handwheel lock screw |
 | 4 | 3.5×16 countersunk wood screw | feet (or glue them on) |
-
-The purchase list in `bom.md` has no M5×30s and no short M3s. They come from
-the bolt box.
 
 ## Rebuilding
 
