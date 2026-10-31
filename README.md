@@ -9,9 +9,12 @@ well.
 
 My setup is an OM System OM-3 with a Minolta AF (A-mount) 50mm f2.8 Macro,
 which weighs approximately 950gr. The copy stand handles that without a
-problem. My lightsource is a CS-Lite and the film-holder a tone-scanner,
-both fit without any clearance problems. There is travel from 160 to 420mm
-approximately and the lead-screw does not move at all under its own weight.
+problem. The camera is attached with an arca-swiss-style plate I already
+had from my tripod but you could 3D print a similar one or adjust the camera
+clamp for a plate you already have.  My lightsource is a CS-Lite and the
+film-holder a tone-scanner, both fit without any clearance problems. There
+is travel from 160 to 420mm approximately and the lead-screw does not move
+at all under its own weight.
 
 **Is it level?** In my tests with my camera, there seems to be approximately
 a 0.8degree error at the heights I use it. It seems to be caused by the
