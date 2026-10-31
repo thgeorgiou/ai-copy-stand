@@ -89,22 +89,24 @@ module tr8(len = screw_len) {
 }
 
 // ---------------------------------------------------------------- anti-backlash nut
-// Flange underside at z = 0. Main nut body hangs below, spring side above.
+// Flat flange face at z = 0. Body, spring and end piece all on the +z side,
+// keyed together on the screw.
 module ab_nut() {
     color(c_brass) difference() {
         union() {
             cylinder(d = abn_flange_d, h = abn_flange_t);
-            translate([0, 0, -abn_body_l]) cylinder(d = abn_body_d, h = abn_body_l);
-            // spring section, then spring-end nut
-            translate([0, 0, abn_flange_t])
-                cylinder(d = abn_spring_d_min, h = abn_spring_l - 4);
-            translate([0, 0, abn_flange_t + abn_spring_l - 4])
-                cylinder(d = abn_spring_d_max, h = 4);
+            cylinder(d = abn_body_d, h = abn_len);
+            translate([0, 0, abn_len - abn_collar_l])
+                cylinder(d = abn_collar_d, h = abn_collar_l);
         }
         for (a = [0:90:270]) rotate(a) translate([abn_bcd/2, 0, -1])
             cylinder(d = abn_hole_d, h = abn_flange_t + 2);
-        translate([0, 0, -abn_body_l - 1])
-            cylinder(d = screw_d, h = abn_body_l + abn_flange_t + abn_spring_l + 2);
+        translate([0, 0, -1]) cylinder(d = screw_d, h = abn_len + 2);
+    }
+    // spring
+    color(c_steel) translate([0, 0, abn_flange_t]) difference() {
+        cylinder(d = abn_spring_d, h = abn_len - abn_flange_t - abn_collar_l);
+        translate([0, 0, -1]) cylinder(d = abn_spring_d - 1.4, h = abn_len);
     }
 }
 

@@ -323,7 +323,7 @@ def steps():
         st.hw("bolt(14, d = 3)", [x, y, top], "-z", 70)
     st.label([0, sy + 13, top + ne + 2], "1  anti-backlash nut, flange up", 150, -180)
     st.label([-6, sy + 6, top + 70 + 3], "2  M3 ×4", -180, -60)
-    st.label([0, sy, top], "spring end hangs in here", 200, 130)
+    st.label([0, sy, top], "rest of the nut hangs in here", 200, 130)
     S[st.id] = st
 
     # ---- clamp: nut, jaw, knob

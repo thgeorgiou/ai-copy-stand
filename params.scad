@@ -83,11 +83,15 @@ abn_flange_d = 26;  // [M]
 abn_flange_t = 4;   // [M]
 abn_bcd      = 17;  // [M] opposite-hole centre distance (re-check: edge method)
 abn_hole_d   = 4;   // [M] 4 holes, cross pattern, M3 -> ~0.5 mm float
-abn_body_d   = 10;  // [M] main nut body
-abn_body_l   = 11;  // [M] 15 total with flange
-abn_spring_l = 11;  // [M] spring side, 26 total
-abn_spring_d_min = 10;    // [M]
-abn_spring_d_max = 14;    // [M] spring-end nut
+// Flange at one end, flat outer face. Everything else is on the other side:
+// the body (a column the spring sits on), the spring, then the end piece,
+// keyed to the body by teeth, with a wide collar at its far end.
+abn_body_d   = 10;  // [M] column under the flange
+abn_spring_d = 11;  // [M] spring OD
+abn_end_l    = 15;  // [M] end piece, collar included
+abn_collar_d = 14;  // [M]
+abn_collar_l = 4;   // [M]
+abn_len      = 27;  // [M] flange face to collar end, keyed, on the screw (26 fully pushed in)
 
 // ---------------------------------------------------------------- plain Tr8 nut
 // The brass nut that came with the screw, reused as the handwheel's thrust
@@ -96,7 +100,7 @@ abn_spring_d_max = 14;    // [M] spring-end nut
 pn_flange_d = abn_flange_d;   // [M]
 pn_flange_t = abn_flange_t;   // [M]
 pn_body_d   = abn_body_d;     // [M]
-pn_len      = abn_flange_t + abn_body_l;   // [M] flange + body, ring not included
+pn_len      = 15;             // [M] flange + body, ring not included
 pn_bcd      = abn_bcd;        // [M]
 pn_hole_d   = abn_hole_d;     // [M]
 pn_ring_h   = 1;              // [M]

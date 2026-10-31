@@ -9,7 +9,7 @@
 //   - side plate on the beam's right face carrying the 4 wheels
 //     (front pair fixed spacers, back pair eccentric)
 //   - nut tower in front of the beam: the anti-backlash nut's flange sits
-//     on top, spring end hanging down in a bore
+//     on top, the rest of the nut hanging down in a stepped bore
 //   - clamp in front of the tower, mirrored: fixed jaw on the right (merged
 //     into the plate), moving jaw + knob on the free left side
 //
@@ -30,7 +30,15 @@ tower_x0 = -14;
 tower_y0 = 35;
 tower_z0 = -48;                    // clears the lower front wheel (top at -53)
 tower_z1 = nut_seat_z;             // nut flange seat
-spring_bore_d = abn_spring_d_max + 2;      // room to float
+// The nut hangs from its flange into a stepped bore. The top step is just
+// wide enough for the collar to pass and keeps the M3 pilots walled in (they
+// sit 7.25 mm off the axis): both are plain round holes there, since a
+// teardrop on either would cut one into the other. Below the screw tips it
+// opens up so the collar floats.
+neck_bore_d   = abn_collar_d + 0.6;
+neck_bore_l   = 13;
+spring_bore_d = abn_collar_d + 2;
+nut_bore_l    = abn_len - abn_flange_t + 2;   // flange underside to bore floor
 // Runs on past the clamp body's back face to wall in the spring bore, but
 // stops short of the clamp's nut slot (it opens upwards in front of here).
 tower_y1 = screw_y + spring_bore_d/2 + 2;
@@ -38,8 +46,8 @@ nut_slot_y0 = clamp_face_y + bolt_y - (nut_af + clr_hole)/2;
 assert(tower_y1 < nut_slot_y0, "nut tower covers the clamp nut slot");
 assert(tower_y1 > clamp_face_y - clamp_back_t, "nut tower must meet the clamp body");
 screw_bore_d  = screw_d + 3;
-m3_pilot_d = 2.6;                  // [D] self-tapping M3 in PLA
-m3_pilot_l = 16;
+m3_pilot_d = 2.5;                  // [D] self-tapping M3 in PLA
+m3_pilot_l = neck_bore_l;          // M3x12-16 tips stop in the narrow step
 abn_angle  = 45;                   // flange holes on the diagonals, clear of the plate
 
 clamp_len = carriage_clamp_len;
@@ -95,13 +103,18 @@ module carriage() {
         translate([0, screw_y, 0]) {
             // screw clearance, full height
             hole_z(screw_bore_d, -carriage_h, 2 * carriage_h);
-            // spring end of the nut hangs into this
-            hole_z(spring_bore_d, tower_z1 - abn_spring_l - 1.5, abn_spring_l + 2);
+            // the nut's body, spring and end piece hang into this
+            translate([0, 0, tower_z1 - neck_bore_l]) cylinder(d = neck_bore_d, h = neck_bore_l + 1);
+            hole_z(spring_bore_d, tower_z1 - nut_bore_l, nut_bore_l - neck_bore_l);
             // flange seat: relieve the side plate where the flange overlaps it
             translate([0, 0, tower_z1]) cylinder(d = abn_flange_d + 1, h = abn_flange_t + 1.5);
             // M3 pilots (insert the nut before fitting the upper front wheel)
             for (a = [0:90:270]) rotate(a + abn_angle) translate([abn_bcd/2, 0, 0])
-                hole_z(m3_pilot_d, tower_z1 - m3_pilot_l, m3_pilot_l + 1);
+                translate([0, 0, tower_z1 - m3_pilot_l]) {
+                    cylinder(d = m3_pilot_d, h = m3_pilot_l + 1, $fn = 24);
+                    // lead-in so the screw tip finds the hole
+                    translate([0, 0, m3_pilot_l - 1]) cylinder(d1 = m3_pilot_d, d2 = 3.6, h = 1.01, $fn = 24);
+                }
         }
     }
 }

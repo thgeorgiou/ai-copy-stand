@@ -246,8 +246,9 @@
 #step([Fit the anti-backlash nut], "s08",
   need: (([P1], [carriage]), ([1×], [anti-backlash nut]), ([4×], [M3×12–16])))[
   #steps(
-    [Nut *flange up*, spring end down into the bore in the tower. Turn it so its holes line up with the four pilot holes.],
-    [Screw the four M3s in. They cut their own thread in the plastic: drive slowly and stop as soon as the flange is clamped.],
+    [Nut *flange up*, with everything else (body, spring and end piece) hanging down into the bore in the tower.],
+    [Press the flange down onto its seat against the spring and turn it so its holes line up with the four pilot holes.],
+    [Start two opposite M3s first while holding the flange down, then the other two. They cut their own thread in the plastic: drive slowly and stop as soon as the flange is clamped.],
   )
   #v(6pt)
   #tip[Do this before fitting the wheels. The upper front wheel covers the two back screws.]
