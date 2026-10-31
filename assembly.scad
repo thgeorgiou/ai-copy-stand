@@ -6,6 +6,7 @@ use <parts/p1_carriage.scad>
 use <parts/p5_bearing_bracket.scad>
 use <parts/p6_foot.scad>
 use <parts/p7_handwheel.scad>
+use <parts/p8_board_feet.scad>
 
 // Camera height: by default, set for the film-scanning magnification.
 // Override carriage_z with -D to look at other heights.
@@ -39,13 +40,15 @@ echo(str("\n",
   "screw above top race     = ", screw_z1 - top_race_top, "  (handwheel hub top at ", pn_ring_h + 32, ")\n",
   "holder back edge y       = ", holder_y0, "  (", holder_y0 - beam_d/2, " from beam)\n",
   "holder top -> bracket    = ", bottom_bracket_z - holder_h, "\n",
-  "lens rear -> clamp face  = ", lens_rear_clr, "\n"
+  "lens rear -> clamp face  = ", lens_rear_clr, "\n",
+  "bolt tails -> table      = ", board_foot_h - board_bolt_tail, "  (feet ", board_foot_h, " tall)\n"
 ));
 
 // ---------------------------------------------------------------- groups
 // Everything bolted to the board.
 module fixed_parts() {
     color(c_print) foot();
+    color(c_print) board_feet();
     for (z = [bottom_bracket_z, top_bracket_z]) {
         color(c_print) translate([0, 0, z]) bearing_bracket();
         translate([0, screw_y, z + bracket_t]) kfl08();

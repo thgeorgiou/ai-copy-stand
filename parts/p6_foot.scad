@@ -17,11 +17,10 @@ collar_h = 28;        // stays under the bottom bracket's skirt
 beam_clr = 0.3;
 wing_x   = 62;        // half-span of the wings
 rib_t    = 6;
-board_bolt_len = 60;
 boss_d   = 12;
 boss_x   = 46;
 // head on the boss, washer + nut + ~2 threads under the board
-boss_h   = board_bolt_len - board_t - 1.5 - 4 - 2;
+boss_h   = board_bolt_len - board_t - board_bolt_tail;
 front_y  = beam_d/2 + wall_t;             // stays clear of the film holder
 back_y   = -beam_d/2 - wall_t;            // 4 mm inside the board's back edge
 

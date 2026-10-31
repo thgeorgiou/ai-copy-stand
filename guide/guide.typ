@@ -130,7 +130,7 @@
     list(
       [Hex keys 2.5, 3 and 4 mm (M3 socket, M5 low-profile, M5 socket heads)],
       [8 mm spanner for M5 nuts, and one to fit the eccentric spacers' hex],
-      [Drill with a 5.5 mm bit for the board],
+      [Drill with 5.5 mm and 2.5 mm bits for the board],
       [A vice or clamp and a socket of about 14 mm, to press the bearings],
       [Ruler or calipers, a small square, a marker],
     )
@@ -163,6 +163,7 @@
       [4], [M3×12–16], [anti-backlash nut],
       [4], [M3×8–10], [brass nut],
       [1 + 1], [M3×10 + M3 nut], [handwheel lock],
+      [4], [3.5×16 countersunk wood screw], [feet],
       table.hline(stroke: 0.5pt + muted),
       [4], [V-wheel kits: wheel, 2 bearings, shim, nylock], [],
       [2 + 2], [fixed + eccentric spacers], [],
@@ -219,6 +220,18 @@
   #v(6pt)
   #tip[Drill from the top with a scrap block under the board, so the bamboo doesn't split out on the underside.]
   #check[The beam stands square to the board in both directions. If not, shim under the foot.]
+]
+
+#step([Fit the feet], "s05b",
+  need: (([P8], [4× foot]), ([4×], [3.5×16 countersunk wood screws]), ([], [2.5 mm drill])))[
+  #steps(
+    [Lay the stand on its side. Mark a foot centre 25 mm in from both edges at each corner.],
+    [Drill 2.5 mm pilot holes, about 11 mm deep. Tape on the bit as a depth stop: the board is only 15 mm thick.],
+    [Screw each foot on, counterbore facing the floor.],
+  )
+  #v(6pt)
+  #tip[No drill? The top of each foot is flat, so glue or VHB tape works too.]
+  #check[Stood up, the board sits on all four feet without rocking, and the board-bolt nuts don't touch the table (4.5 mm clear).]
 ]
 
 #step([Fit the bottom bearing bracket], "s06",

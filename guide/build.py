@@ -109,6 +109,7 @@ class Step:
                     "use <../../parts/p5_bearing_bracket.scad>\n"
                     "use <../../parts/p6_foot.scad>\n"
                     "use <../../parts/p7_handwheel.scad>\n"
+                    "use <../../parts/p8_board_feet.scad>\n"
                     "include <../hardware.scad>\n$fn = 48;\n")
             f.write(";\n".join(self.scad) + ";\n")
         png = os.path.join(IMG, self.id + ".png")
@@ -284,6 +285,24 @@ def steps():
     st.label([-46, 0, 82.5 + 5], "1  M5×60", -60, -120)
     st.label([46, 0, -40], "2  big washer + nut", 160, 80)
     st.label([-46, -15, 0], "30 mm from the back", -260, 30)
+    S[st.id] = st
+
+    # ---- feet under the board (seen from below)
+    st = Step("s05b", cam([0, 110, -45], 115, -35, 260))
+    st.s("board()").s(beam(110)).s(f"color({OLD}) foot()")
+    for sx in (-1, 1):
+        st.hw("washer(5, od = 15, t = 1.5)", [sx * 46, 0, -15.75], "+z", 0)
+        st.hw("nut()", [sx * 46, 0, -18.5], "+z", 0)
+    fh, fe = P["board_foot_h"], 30
+    for x, y in P["foot_xy"]:
+        st.part(f"translate([{x}, {y}, {-P['board_t'] - fe}]) mirror([0, 0, 1]) board_foot()")
+        st.lines.append(([x, y, -P["board_t"] - fe], [x, y, -P["board_t"]]))
+        st.hw("bolt(16, d = 3.5)", [x, y, -P["board_t"] - 5], "+z", fe + 25, guide=False)
+    (x0, y0), (x1, _), (_, y1), _ = P["foot_xy"]
+    st.label([x0, y1, -P["board_t"] - fe - fh / 2], "1  P8 foot", -170, 30)
+    st.label([x1, y1, -P["board_t"] - fe - 22], "2  3.5×16 wood screw", -40, 150)
+    st.label([46, 0, -20], "3  bolt tails clear by 4.5 mm", -60, 160)
+    st.label([x0, y0, -P["board_t"]], "25 mm in from each edge", -150, -120)
     S[st.id] = st
 
     # ---- bottom bracket

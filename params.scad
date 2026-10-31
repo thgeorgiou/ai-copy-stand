@@ -22,6 +22,13 @@ board_w = 450;      // [M] x
 board_d = 280;      // [M] y
 board_t = 15;       // [M]
 board_back_margin = 10;   // [D] beam back face to board back edge
+// P6's M5x60 board bolts come out under the board: big washer + nut + 2 threads
+board_bolt_len  = 60;           // [D]
+board_bolt_tail = 1.5 + 4 + 2;  // [D] below the board's underside
+// Feet (P8), one near each corner, to lift the board clear of those nuts
+board_foot_d     = 30;          // [D]
+board_foot_h     = board_bolt_tail + 4.5;   // [D] 12; 4.5 mm under the bolt tails
+board_foot_inset = 25;          // [D] board edge to foot centre, both ways
 
 // ---------------------------------------------------------------- beam
 // V-Slot 2040, 40 mm front-to-back (y), 20 mm left-right (x)

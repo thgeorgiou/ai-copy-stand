@@ -1,4 +1,5 @@
 include <../../params.scad>
+use <../../parts/p8_board_feet.scad>
 echo(str("PARAMS{",
  "\"wheel_y\":", wheel_y, ",\"screw_y\":", screw_y, ",\"clamp_face_y\":", clamp_face_y,
  ",\"axis_y\":", axis_y, ",\"plate_x0\":", carriage_plate_x0, ",\"plate_t\":", carriage_plate_t,
@@ -11,4 +12,5 @@ echo(str("PARAMS{",
  ",\"pn_len\":", pn_len, ",\"pn_ring_h\":", pn_ring_h, ",\"cam_socket\":", cam_socket_from_mount,
  ",\"sensor_z\":", sensor_z, ",\"mft_flange\":", mft_flange, ",\"holder_film_from_back\":", holder_film_from_back,
  ",\"board_t\":", board_t, ",\"plate_l\":", plate_l, ",\"plate_t\":", plate_t,
+ ",\"board_foot_h\":", board_foot_h, ",\"foot_xy\":", board_foot_xy(),
  "}PARAMS"));

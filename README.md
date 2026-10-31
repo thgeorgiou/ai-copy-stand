@@ -18,7 +18,8 @@ Assembly instructions: [`guide/assembly_guide.pdf`](guide/assembly_guide.pdf).
 ## Layout
 
 - **Column:** the beam stands at the back edge of the board, 40 mm side
-  front-to-back. Its foot (P6) bolts through the board.
+  front-to-back. Its foot (P6) bolts through the board. Four feet (P8)
+  lift the board so the bolts' nuts underneath clear the table.
 - **Carriage (P1):** rides the front and back V-grooves. The front wheels use
   fixed spacers and the back wheels use eccentric spacers. The carriage plate
   is on the beam's left-hand face as seen from the front.
@@ -60,6 +61,7 @@ Assembly instructions: [`guide/assembly_guide.pdf`](guide/assembly_guide.pdf).
 | P5 bearing bracket | 2 | Prints upside down, plate on the bed. |
 | P6 foot | 1 | |
 | P7 handwheel + crank sleeve | 1 + 1 | |
+| P8 board feet | 4 | `p8_board_feet.stl` has all four. Board face down, no supports. |
 
 Use 4 or more walls on P1, P5 and P6, with 30–40 % infill.
 
@@ -91,6 +93,7 @@ Use 4 or more walls on P1, P5 and P6, with 30–40 % infill.
 | 4 | M3×12–16 | anti-backlash nut, self-tapping into PLA |
 | 4 | M3×8–10 | brass nut in the handwheel |
 | 1 + 1 | M3×10 + M3 nut | handwheel lock screw |
+| 4 | 3.5×16 countersunk wood screw | feet (or glue them on) |
 
 The purchase list in `bom.md` has no M5×30s and no short M3s. They come from
 the bolt box.
@@ -104,6 +107,7 @@ openscad --render -o stl/p1_carriage.stl         parts/p1_carriage.scad
 openscad --render -o stl/p3_p4_jaw_knob.stl      parts/p3_p4_jaw_knob.scad
 openscad --render -o stl/p5_bearing_bracket.stl  parts/p5_bearing_bracket.scad
 openscad --render -o stl/p6_foot.stl             parts/p6_foot.scad
+openscad --render -o stl/p8_board_feet.stl       parts/p8_board_feet.scad
 openscad --render -o stl/p7_handwheel.stl        parts/p7_handwheel.scad
 openscad --render -D 'part="crank_sleeve"' -o stl/p7_crank_sleeve.stl parts/p7_handwheel.scad
 openscad --render -o stl/p0c_clamp_coupon.stl    parts/p0c_clamp_coupon.scad
