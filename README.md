@@ -133,24 +133,6 @@ python3 guide/build.py
 typst compile --root . guide/guide.typ guide/assembly_guide.pdf
 typst compile --root . --ppi 150 guide/banner.typ renders/banner.png   # README banner
 ```
-
-## Status
-
-- **Coupon results, now in `params.scad`:**
-  - wheel centres 59.2 mm apart
-  - eccentric bore 7.6 mm
-  - M5 clearance holes 5.3 mm
-  - bolt heads sunk 7 mm into the carriage, so M5×30s reach the nylocks
-  - softer crush ribs in the knob
-  - clamp nut trap placed for an M5×30
-- **Collision checks:** zero overlaps between parts. Carriage travel is
-  159–420 mm.
-- **Next:** print P1 and check the wheel tension with all four wheels. If the
-  eccentrics end up near the end of their range, adjust `wheel_face_off`.
-- **Side note:** the carriage ended up on the left of the beam as seen from
-  the front, not on the right as first planned. It works either way.
-  Mirroring the whole design is a single change if it's ever wanted.
-
 ## License
 
 [CC0 1.0](LICENSE): public domain, with no conditions. Print it, remix it,
